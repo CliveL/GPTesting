@@ -1,0 +1,14 @@
+<head>
+    <title>Gecko Parts - Vehicle Input</title>
+</head>
+<body>
+    <div id="header" style="background-color:#0033ff;width:100%;height:100px">
+            <h1 style="margin-bottom:0;" align="right"><font color="white">Gecko Parts</font></h1>
+    </div>
+    <div id="container" style="width:100%;height:50%">
+       <div><form action="{%  url 'buyside:vehicleconfirm' %}" method="POST">{% csrf_token %}
+           <input type="text" name="registration"/>
+           <input type="submit" value="Go!"/>
+       </form></div>
+    </div>
+</body>
