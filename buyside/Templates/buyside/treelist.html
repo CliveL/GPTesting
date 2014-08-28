@@ -49,9 +49,10 @@
 
 <h4>Simple Tree Menu #2 (Folder 1.1 open by default):</h4>
 
-<a href="javascript:ddtreemenu.flatten('treemenu2', 'expand')">Expand All</a> | <a href="javascript:ddtreemenu.flatten('treemenu2', 'contact')">Contact All</a>
+<!--<a href="javascript:ddtreemenu.flatten('treemenu2', 'expand')">Expand All</a> | <a href="javascript:ddtreemenu.flatten('treemenu2', 'contact')">Contact All</a>
 
-<ul id="treemenu2" class="treeview">
+<ul id="treemenu2" class="treeview">-->
+<ul id="treemenu2">
 <li>Item 1</li>
 
 <li>Folder 1
@@ -77,12 +78,45 @@
 <li>Item 2</li>
 </ul>
 
+<ul id="geckosearch" class="treeview">
+    <li>Engine
+        <ul>
+            <li>Block</li>
+            <li>Cylinder Head</li>
+        </ul>
+    </li>
+    <li>Exterior
+        <ul>
+            <li>Doors
+                <ul>
+                    <li>Front Right</li>
+                    <li>Front Left</li>
+                    <li>Rear Right</li>
+                    <li>Rear Left</li>
+                </ul>
+            </li>
+            <li>Wings
+                <ul>
+                    <li>Front Right</li>
+                    <li>Front Left</li>
+                    <li>Rear Right</li>
+                    <li>Rear Left</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Transmission</li>
+
+</ul>
+
+
 <script type="text/javascript">
 
 //ddtreemenu.createTree(treeid, enablepersist, opt_persist_in_days (default is 1))
 
 ddtreemenu.createTree("treemenu1", true)
 ddtreemenu.createTree("treemenu2", false)
+ddtreemenu.createTree("geckosearch", true)
 
 </script>
 </body>

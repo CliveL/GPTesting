@@ -2,7 +2,7 @@
     <title>Buyside Search</title>
     <link href="{{ STATIC_URL }}css/listings.css" rel="stylesheet" type="text/css"/>
 
-    <script type="text/javascript" src="simpletreemenu.js">
+    <script type="text/javascript" src="{{ STATIC_URL }}js/simpletreemenu.js">
 
     /***********************************************
     * Simple Tree Menu- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
@@ -12,14 +12,53 @@
 
     </script>
 
-    <link rel="stylesheet" type="text/css" href="simpletree.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/simpletree.css" />
 </head>
 <body>
     <div class="header">
             <img src="{{ STATIC_URL }}images/Icon.png" style="margin-bottom:0;width: 40px;height:40px" align="right"/>
     </div>
     <div class="container">
-        <div class="searchtree">This is the search tree</div>
+        <div class="searchtree">
+        <ul id="geckosearch" class="treeview">
+            <li>Engine
+                <ul>
+                    <li>Block</li>
+                    <li>Cylinder Head</li>
+                </ul>
+            </li>
+            <li>Exterior
+                <ul>
+                    <li>Doors
+                        <ul>
+                            <li><a href="{% url 'buyside:homepage' %}">Front Right</a></li>
+                            <li>Front Left</li>
+                            <li>Rear Right</li>
+                            <li>Rear Left</li>
+                        </ul>
+                    </li>
+                    <li>Wings
+                        <ul>
+                            <li>Front Right</li>
+                            <li>Front Left</li>
+                            <li>Rear Right</li>
+                            <li>Rear Left</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Transmission</li>
+        </ul>
+
+        <script type="text/javascript">
+
+        ddtreemenu.createTree("geckosearch", false)
+
+        </script>
+
+        </div>
+
+
         <div class="listinggroup">
             <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
             <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
