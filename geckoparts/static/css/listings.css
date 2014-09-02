@@ -13,7 +13,7 @@ div.listinggroup {
 }
 .searchtree {
     width: 25%;
-    background: red;
+    background: white;
     min-width: 150px;
 }
 .listinggroup {
@@ -24,7 +24,7 @@ div.listinggroup {
 .listing {
     width:100%;
     min-width: 400px;
-    background-color: green;
+    background-color: white;
     height: 220px;
 }
 

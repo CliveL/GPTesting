@@ -11,5 +11,5 @@ urlpatterns = patterns('',
                        # ex: /buyside/vehicleconfirm/
                        url(r'^vehicleconfirm/$', views.vehicleconfirm, name="vehicleconfirm"),
                        # ex: /buyside/vehicleconfirm/
-                       url(r'^treelist/$', views.treelist, name="vehicleconfirm"),
+                       url(r'^treelist/$', views.treelist, name="treelist"),
 )
