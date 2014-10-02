@@ -19,6 +19,7 @@ div.listinggroup {
 .listinggroup {
     width: 75%;
     overflow-x: auto;
+    overflow-y: auto;
 }
 
 .listing {

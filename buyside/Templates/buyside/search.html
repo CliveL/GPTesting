@@ -16,38 +16,22 @@
 </head>
 <body>
     <div class="header">
-            <img src="{{ STATIC_URL }}images/Icon.png" style="margin-bottom:0;width: 40px;height:40px" align="right"/>
+        {% if single_listing %}
+        <a>{{ single_listing.price }}</a>
+        {% endif %}
+        {% if single_part %}
+        <a>{{ single_part.name }}</a>
+        {% endif %}
+        <img src="{{ STATIC_URL }}images/Icon.png" style="margin-bottom:0;width: 40px;height:40px" align="right"/>
     </div>
     <div class="container">
+        {% if all_vehicle_parts %}
+
         <div class="searchtree">
         <ul id="geckosearch" class="treeview">
-            <li>Engine
-                <ul>
-                    <li>Block</li>
-                    <li>Cylinder Head</li>
-                </ul>
-            </li>
-            <li>Exterior
-                <ul>
-                    <li>Doors
-                        <ul>
-                            <li><a href="{% url 'buyside:homepage' %}">Front Right</a></li>
-                            <li>Front Left</li>
-                            <li>Rear Right</li>
-                            <li>Rear Left</li>
-                        </ul>
-                    </li>
-                    <li>Wings
-                        <ul>
-                            <li>Front Right</li>
-                            <li>Front Left</li>
-                            <li>Rear Right</li>
-                            <li>Rear Left</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>Transmission</li>
+        {% autoescape off %}
+        {{ all_vehicle_parts|unordered_list }}
+        {% endautoescape %}
         </ul>
 
         <script type="text/javascript">
@@ -57,15 +41,33 @@
         </script>
 
         </div>
+        {% endif %}
 
 
         <div class="listinggroup">
+            {% if single_part %}
+            {%  for listing in single_part.listings_set.all %}
+                <div class="listing" style="width: 600px">
+                    <a id="picture" style="width: 200px;height: 200px;background-color: blue;float: left">Picture</a>
+                    <a style="min-width: 200px;width: 33%;height: 200px;background-color: green;float: left">
+                    <p>{{ listing.price }}</p>
+                    <p>{{ listing.part_condition }}</p>
+                    <p>{{ listing.part_mileage }}</p>
+                    </a>
+                    <a style="min-width: 200px;width: 33%;height: 200px;background-color: purple;float: left">
+                    <p>{{ listing.price }}</p>
+                    <p>{{ listing.part_condition }}</p>
+                    <p>{{ listing.part_mileage }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+            {% endif %}
             <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
-            <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
-            <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
-            <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
-            <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
-            <div class="listing"><a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a></div>
+            <div class="listing">
+                <a id="picture" style="width: 200px;height: 200px;background-color: blue">Picture</a>
+                <a id="info1" style="width: 200px;height: 200px;background-color: green">Info section 1</a>
+                <a id="info2" style="width: 200px;height: 200px;background-color: red">Info section 2</a>
+            </div>
 
 
 
