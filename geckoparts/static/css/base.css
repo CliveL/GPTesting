@@ -1,0 +1,23 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+
+div.container {
+    width:100%;
+    height: 90%;
+    overflow-x: auto;
+    min-width: 600px;
+
+}
+
+.header
+{
+    background-color:#0033ff;
+    /*position:fixed;*/
+    left:0;
+    top:0;
+    width:100%;
+    height:40px;
+}

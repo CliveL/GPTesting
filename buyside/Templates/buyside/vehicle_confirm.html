@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
-<form action="{%  url 'buyside:search' %}" method="POST">{%  csrf_token %}
+<form action="{%  url 'buyside:search' vehicle_id %}" method="POST">{%  csrf_token %}
 {{ car_details.as_p }}
 <input type="submit" value="Go"/>
 </form>
