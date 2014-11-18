@@ -1,0 +1,78 @@
+<head>
+    <title>Buyside Search</title>
+    <link href="{{ STATIC_URL }}css/listings.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/simpletreemenu.js">
+
+    /***********************************************
+    * Simple Tree Menu- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+    * This notice MUST stay intact for legal use
+    * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+    ***********************************************/
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/simpletree.css" />
+</head>
+<body>
+{% include 'buyside/headline.html'%}
+    <div class="container">
+        {% if all_vehicle_parts %}
+
+        <div class="searchtree">
+        <ul id="geckosearch" class="treeview">
+        {% autoescape off %}
+        {{ all_vehicle_parts|unordered_list }}
+        {% endautoescape %}
+        </ul>
+
+        <script type="text/javascript">
+
+        ddtreemenu.createTree("geckosearch", false)
+
+        </script>
+
+        </div>
+        {% endif %}
+
+
+        <div class="listinggroup">
+            {% if single_part %}
+            {%  for listing in single_part %}
+                <div class="listing" style="width: 600px">
+                    <div style="width: 200px;height: 200px;background-color: blue;float: left">
+                    <a id="picture" href="{% url 'buyside:search2' target_vehicle.vehicle_id listing.listing_number %}">
+                        <img src="http://placehold.it/200x200" style="width: 100%;"/>
+                    </a>
+                    </div>
+
+                    <div style="min-width: 200px;height: 200px;background-color: green;float: left">
+                    <a style="width: 100%">
+                    <p>{{ listing.price }}</p>
+                    <p>{{ listing.part_condition }}</p>
+                    <p>{{ listing.part_mileage }}</p>
+                    </a>
+                    </div>
+                    <div style="min-width: 200px;height: 200px;background-color: red;float: left">
+                    <a style="width: 100%">
+                    <p>{{ listing.price }}</p>
+                    <p>{{ listing.part_condition }}</p>
+                    <p>{{ listing.part_mileage }}</p>
+                    </a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+
+
+
+        <!--
+            <div id="listing" style="width:600px;height:200px;float:right;background-color:green">
+            <ul style="width: 200px;height:90%;background-color: darkred;float:left">Picture</ul>
+            <ul style="width: 400px;height:90%;background-color: red;float:right">Description</ul>
+        </div>
+        -->
+        </div>
+    </div>
+</body>

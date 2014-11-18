@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'buyside',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,8 +58,12 @@ WSGI_APPLICATION = 'geckoparts.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'geckotest',
+        'USER': 'djangogecko',
+        'PASSWORD': 'gecko',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -79,4 +84,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(os.path.dirname(__file__),'static').replace('\\','/'),
+)
+
+MEDIA_ROOT = ''
+MEDIA_URL = ''
+STATIC_ROOT = ''
 STATIC_URL = '/static/'

@@ -8,5 +8,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'geckoparts.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^buyside/', include('buyside.urls', namespace="buyside")),
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Upload All Parts For A Given Vehicle</title>
+    <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ STATIC_URL }}css/wholeupload.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/simpletreemenu.js">
+
+    /***********************************************
+    * Simple Tree Menu- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+    * This notice MUST stay intact for legal use
+    * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+    ***********************************************/
+
+    </script>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.js"></script>
+    <script src="{{ STATIC_URL }}js/upload.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/simpletree.css" />
+
+</head>
+<body>
+{% include 'buyside/headline.html'%}
+<div class="container">
+    <div class="vehicledetails">
+        <p>This is the vehicle detail</p>
+    </div>
+    <div class="partsdetails">
+        {% if all_vehicle_parts %}
+
+        <div class="searchtree">
+        <form action="{% url 'buyside:upload_complete' %}" method="post">
+        <ul id="vehicle_upload" class="treeview">
+        {% for part in all_vehicle_parts %}
+
+            <p id="{{ part.0 }}"><label for="{{ part.0 }}">{{ part.1 }}</label>
+            <input id="{{ part.0 }}" type = "test" name="{{ part.0 }}"/></p>
+
+        {% endfor %}
+
+        </ul>
+
+        </form>
+        <script type="text/javascript">
+
+        ddtreemenu.createTree("vehicle_upload", false)
+
+        </script>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!--<div class="container">
+    <form  action="{% url 'buyside:upload_complete' %}" method="post">
+        <p id="sv650s.fairings"><label for="sv650s.fairings">Fairings</label>
+        <input id="sv650s.fairings" type="text" name="sv650s.fairings"/></p>
+
+        <p id="fairings.topfront"><label for="fairings.topfront">..Top Front</label>
+        <input id="fairings.topfront" type="text" name="fairings.topfront"/></p>
+
+        <p id="topfront.screen"><label for="topfront.screen">....Screen</label>
+        <input id="topfront.screen" type="text" name="topfront.screen"/></p>
+
+        <p id="topfront.plastic"><label for="topfront.plastic">....Plastics</label>
+        <input id="topfront.plastic" type="text" name="topfront.plastic"/></p>
+
+
+    </form>
+</div>-->
+</body>
+</html>
