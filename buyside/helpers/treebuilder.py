@@ -79,9 +79,13 @@ class ListNode:
             count += 1
         padding = padding + ">"
 
+        form_data = []
         id_string = parent_title + "." + self.name
         id_string = id_string.replace(" ", "_")
-        form_data = (id_string, padding + self.name)
+
+        form_data[0] = parent_title.replace(" ", "_")
+        form_data[1] = self.name.replace(" ", "_")
+        form_data[2] = padding + self.name
         id_list = []
         id_list.append(form_data)
         if self.child_nodes.__len__() != 0:
